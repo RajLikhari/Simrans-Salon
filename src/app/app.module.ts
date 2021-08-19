@@ -10,6 +10,8 @@ import { BookingPageComponent } from './booking-page/booking-page.component';
 import { GalleryComponentComponent } from './gallery-component/gallery-component.component';
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatRippleModule} from '@angular/material/core';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [MenuComponent]
