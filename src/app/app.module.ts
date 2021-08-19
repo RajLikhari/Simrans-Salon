@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { BookingPageComponent } from './booking-page/booking-page.component';
 import { GalleryComponentComponent } from './gallery-component/gallery-component.component';
 
+import {MatButtonModule} from '@angular/material/button';
+
+
 @NgModule({
   declarations: [
     MenuComponent,
@@ -20,7 +23,8 @@ import { GalleryComponentComponent } from './gallery-component/gallery-component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [MenuComponent]
