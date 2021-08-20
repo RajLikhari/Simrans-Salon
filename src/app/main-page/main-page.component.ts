@@ -1,3 +1,4 @@
+import { getSupportedInputTypes } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,8 +10,18 @@ export class MainPageComponent implements OnInit {
 
   constructor() { }
 
+ 
+
   ngOnInit(): void {
-   
+
+    var serviceItem = {
+      type: "",
+      price: "",
+      description: ""
+    }
+
+
+    
 
 
 

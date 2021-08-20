@@ -1,0 +1,32 @@
+.card-container{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-top: 20px;
+
+    .card-box{
+        background: linear-gradient(to left, white, #FFC0CB);
+        border: 1px solid black;
+        box-shadow: 1px 1px 5px black;
+        height: auto;
+        width: 500px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .card-box:hover{
+        left: 10px;
+        position: relative;
+        bottom: 10px;
+    }
+}

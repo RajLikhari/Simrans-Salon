@@ -1,1 +1,7 @@
-<p>gallery-component works!</p>
+ <div class="card-container">
+    <div *ngFor="let item of array; index as i" class="card-box">
+        <app-gallery-card [imageUrl]="item"></app-gallery-card>
+    </div>
+ </div> 
+   
+
