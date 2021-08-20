@@ -1,3 +1,4 @@
+import { VariableAst } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { deflateRaw } from 'zlib';
 
@@ -9,9 +10,8 @@ import { deflateRaw } from 'zlib';
 export class CursiveTitleComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
-    const Vara = require("vara");
+    var Vara = require("vara");
     var vara = new Vara("#element","https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Shadows-Into-Light/shadows-into-light.json",[{
       text:"Welcome to Simran's Salon",
       fontSize: 95,
@@ -20,11 +20,24 @@ export class CursiveTitleComponent implements OnInit {
       duration: 3000,
       textAlign:"center",
       color: "black"
-    }]);
+    },]);
 
     vara.draw("draw");
-  
-  
+
+    window.onresize = function() {
+      if(window.innerWidth > 1000){
+      
+      }
+    }
+   
+   
   }
 
+
+  
 }
+
+
+
+
+  

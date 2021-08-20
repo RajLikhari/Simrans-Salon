@@ -1,48 +1,64 @@
 .grid-container{
     display: grid;
-    grid-template-areas: "c c i i i";
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "h i";
+    grid-template-columns: repeat(2, 50%);
+
+    height: 95vh;
+
+    .header-container{
+        display: flex;
+        grid-area: h;
+        justify-content: center;
+        align-items: center;
+
+
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 200px;
+        line-height: 200px;
+        text-align: center;
+        animation: bringToLife 2s;  
+        filter: drop-shadow(3px 3px 2px gray);      
+
+    }
+
+    @keyframes bringToLife{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+
+    .image-container{
+        display: flex;
+        grid-area: i;
+        overflow: hidden;
+
+        justify-content: center;
+        align-items: center;
+        
+
+    }
+
+    .image-item{
+        height: 900px;
+        width: 850px;
+        border: 1px solid black;
+        filter: drop-shadow(1px 1px 5px gray);
+        animation: moveMe 1s;
+    }
+
+    @keyframes moveMe{
+        0%{
+            margin-left: 200px;
+        }
+        100%{
+            margin-left: 0px;
+        }
+    }
+
     
-    height: 900px;
-    width: 100%;
 }
 
-.cursive-box{
-    grid-area: c;
-    width: inherit;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 100px;
-  
-}
 
-.image-box{
-    grid-area: i;
-    width: inherit;
-    height: inherit;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-   
-}
-
-.image-item{
-    margin-top: 50px;
-    width: auto;
-    height: 90vh;
-    overflow: hidden;  
-    
-    border: 1px solid black;
-    filter: drop-shadow(1px 1px 5px black);
-}
-
-#arrow{
-    font-family: 'Raleway', sans-serif;
-    font-size: 60px;
-    margin-top: 130px;
-    margin-left: 150px;
-}
