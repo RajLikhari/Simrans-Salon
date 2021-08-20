@@ -11,6 +11,7 @@ import { GalleryComponentComponent } from './gallery-component/gallery-component
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
+import { CursiveTitleComponent } from './cursive-title/cursive-title.component';
 
 
 
@@ -20,7 +21,8 @@ import {MatRippleModule} from '@angular/material/core';
     MainPageComponent,
     FooterComponent,
     BookingPageComponent,
-    GalleryComponentComponent
+    GalleryComponentComponent,
+    CursiveTitleComponent
   ],
   imports: [
     BrowserModule,
