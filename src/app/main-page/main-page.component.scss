@@ -1,99 +1,46 @@
-.main-flex{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    background-image: url("../../assets/background.jpg");
-   
-
-
+.total-flex{
     width: 100%;
-    height: 95vh;
+    height: 2000px;
 
-    .word-flex{
+    display: flex;
+    flex-direction: column;
+  
+
+    .first-flex{
         display: flex;
-        width: 50%;
-        height: inherit;
-        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        width: inherit;
+        height: 1000px;
+
+        justify-content: space-around;
         align-items: center;
 
-
-    }
-
-    .word-item{
-        width: 50%;
-        font-size: 200px;
-        font-family: 'Shadows Into Light', cursive;
-        line-height: 180px;
-        text-align: center;
-        filter: drop-shadow(1px 1px 2px black);
-        color: white;
-        padding: 100px;
-    }
-
-    .image-flex{
-        display: flex;
-        width: 50%;
-        height: inherit;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .image-item{
-        box-shadow: 2px 2px 5px gray;
-        width: 88%;
-        height: auto;
-        border: 1px solid black;
-
-    }
-
-    @media only screen and (max-width: 1300px){
         .word-flex{
-            width: 700px;
-            height: 500px;
+            width: 500px;
+            height: 60%;
+            background-color: blueviolet;
 
-        }
-
-        .word-item{
-            font-size: 150px;
         }
 
         .image-flex{
-            width: 700px;
-            height: 500px;
-        }
-    }
-    @media only screen and (max-width: 1750px){
-        .word-item{
-            font-size: 170px;
-            line-height: 160px;
-        }
-    }
-    
-    @media only screen and (max-width: 1400px){
-        .word-item{
-            font-size: 140px;
-            line-height: 130px;
-            margin-bottom: 100px;
-        }
-    }
-    
-    
-    @media only screen and (max-width: 1300px){
-        .word-item{
-            font-size: 90px;
-            line-height: 80px;
-            margin-bottom: 0px;
+            width: 500px;
+            height: 60%;
+            background-color: brown;
         }
 
-        .section-flex{
-            margin-top: 9vh;
-        }
     }
 
+    .second-flex{
+        display: flex;
+        flex-direction: row;
 
-    
-    
+        width: inherit;
+        height: 1000px;
+
+    }
 }
+
+
 
