@@ -3,7 +3,7 @@
     grid-template-areas: "h n n";
     grid-template-columns: repeat(3, 1fr);
 
-    background: linear-gradient(to left, white, #FFC0CB);
+    background: linear-gradient(to left, white, #EED6D3);
     filter: drop-shadow(1px 1px 10px gray);
     z-index: 10;
 
@@ -43,4 +43,19 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 0;
 
+}
+
+
+@media only screen and (max-width: 500px){
+    .web-name{
+        font-size: 25px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+       
+      
+    }
+    .nav-item{
+        font-size: 18px;
+        margin: 2px;
+    }
 }
