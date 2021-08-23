@@ -4,6 +4,7 @@
 
     display: flex;
     flex-direction: column;
+    background-image: url("../../assets/background.jpg");
     
 
   
@@ -84,23 +85,167 @@
 }
 
 
+//Resize for the phone
+@media only screen and (max-width: 1500px){
+    .total-flex{
+
+        .first-flex{
+            height: 1000px;
+
+            .word-flex{
+                margin-top: 10px;
+                height: 30%;
+                width: 60%;
+
+                .word-item{
+                    font-size: 140px;
+                    line-height: 130px;
+                }
+            }
+
+            .image-flex{
+                height: 60%;
+                width: 42%;
+                overflow: hidden;
+
+
+                .image-item{
+                    padding: 20px;
+                    width: 80%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1250px){
+    .total-flex{
+
+        .first-flex{
+            height: 1000px;
+
+            .word-flex{
+                margin-top: 10px;
+                height: 30%;
+                width: 60%;
+
+                .word-item{
+                    font-size: 120px;
+                    line-height: 110px;
+                }
+            }
+
+            .image-flex{
+                height: 60%;
+                width: 50%;
+                overflow: hidden;
+
+
+                .image-item{
+                    padding: 20px;
+                    width: 85%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1050px){
+    .total-flex{
+
+        .first-flex{
+            height: 1000px;
+
+            .word-flex{
+                margin-top: 10px;
+                height: 30%;
+                width: 60%;
+
+                .word-item{
+                    font-size: 110px;
+                    line-height: 90px;
+                }
+            }
+
+            .image-flex{
+                height: 45%;
+                width: 46%;
+                overflow: hidden;
+
+
+                .image-item{
+                    padding: 20px;
+                    width: 81%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 800px){
+    .total-flex{
+
+        .first-flex{
+            height: 900px;
+
+            .word-flex{
+                margin-top: 10px;
+                height: 30%;
+                width: 60%;
+
+                .word-item{
+                    font-size: 85px;
+                    line-height: 80px;
+                }
+            }
+
+            .image-flex{
+                height: 40%;
+                width: 50%;
+                overflow: hidden;
+
+
+                .image-item{
+                    padding: 20px;
+                    width: 85%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+
+
 
 //Resize for the phone
 @media only screen and (max-width: 600px){
     .total-flex{
+
         .first-flex{
             height: 700px;
+
             .word-flex{
-                height: 20%;
+                margin-top: 10px;
+                height: 30%;
                 width: 70%;
+
                 .word-item{
-                    font-size: 60px;
-                    line-height: 40px;
+                    font-size: 70px;
+                    line-height: 55px;
                 }
             }
+
             .image-flex{
                 height: 50%;
                 width: 70%;
+                overflow: hidden;
+
 
                 .image-item{
                     width: 90%;
