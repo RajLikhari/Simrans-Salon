@@ -28,4 +28,13 @@ export class GalleryComponentComponent implements OnInit {
 
   }
 
+  loadedThis = 0
+  loaded(){
+    console.log("hello")
+    this.loadedThis++;
+    if(this.array.length == this.loadedThis){
+      console.log("hello")
+    }
+  }
+
 }

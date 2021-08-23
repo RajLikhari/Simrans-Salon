@@ -1,1 +1,49 @@
-<p>booking-page works!</p>
+<div class="total-flex">
+    <div class="left-flex">
+        <div class="left-flex-header">
+            <p class="book-header">Book an Appointment with Simran's Salon</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="left-flex-body">
+            <form [formGroup]="formGroup" class="form-group" (ngSubmit)="processForm()">
+                
+                <mat-form-field appearance="outline">
+                    <mat-label for="first">First Name</mat-label>
+                    <input matInput type="text" formControlName="first" placeholder="Ex: John">
+                    <mat-error *ngIf="this.formGroup.controls.first.errors?.required">Value required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label for="last">Last Name</mat-label>
+                    <input matInput type="text" formControlName="last" placeholder="Ex: Doe">
+                    <mat-error *ngIf="this.formGroup.controls.last.errors?.required">Value required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label for="email">Email</mat-label>
+                    <input matInput type="text" formControlName="email" placeholder="Ex: john.doe@email.com">
+                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
+                    <mat-error *ngIf="this.formGroup.controls.email.errors?.email">Invalid Email</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label for="phoneNum">Phone Number</mat-label>
+                    <input matInput type="text" formControlName="phoneNum" placeholder="Ex: 111-111-1111">
+                    <mat-error *ngIf="this.formGroup.controls.phoneNum.errors?.required">Value required</mat-error>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label for="appDate">Appointment Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="appDate" placeholder="Ex: 8/18/21">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="this.formGroup.controls.appDate.errors?.required">Value required</mat-error>
+                </mat-form-field>
+    
+                <button class="nav-item" mat-stroked-button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

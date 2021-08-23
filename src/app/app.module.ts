@@ -12,8 +12,21 @@ import { GalleryComponentComponent } from './gallery-component/gallery-component
 import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
 import { CursiveTitleComponent } from './cursive-title/cursive-title.component';
-import {MatCardModule} from '@angular/material/card';
 import { GalleryCardComponent } from './gallery-card/gallery-card.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
+
+
 
 
 
@@ -34,7 +47,16 @@ import { GalleryCardComponent } from './gallery-card/gallery-card.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatRippleModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [MenuComponent]
