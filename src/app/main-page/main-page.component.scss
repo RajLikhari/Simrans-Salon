@@ -4,7 +4,7 @@
 
     display: flex;
     flex-direction: column;
-    background-image: url("../../assets/background.jpg");
+    
 
   
 
@@ -84,3 +84,29 @@
 }
 
 
+
+//Resize for the phone
+@media only screen and (max-width: 600px){
+    .total-flex{
+        .first-flex{
+            height: 700px;
+            .word-flex{
+                height: 20%;
+                width: 70%;
+                .word-item{
+                    font-size: 60px;
+                    line-height: 40px;
+                }
+            }
+            .image-flex{
+                height: 50%;
+                width: 70%;
+
+                .image-item{
+                    width: 90%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
