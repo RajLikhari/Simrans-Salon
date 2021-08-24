@@ -60,42 +60,14 @@
                 button{
                     font-size: 20px;
                     font-family: 'Raleway', sans-serif;
+                    border: 1px black solid;
+
+
 
                 }
 
               
-                //input outline color
-                ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-                    color: black!important;
-                    // opacity: 1!important;
-                }
-
-                //mat-input focused color
-                ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-                    color: black!important;
-                }
-
-                // mat-input error outline color
-                ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
-                    color: red!important;
-                    opacity: 0.8!important;
-                }
-
-                // mat-input carent color
-                ::ng-deep .mat-input-element {
-                    caret-color: black!important;
-                }
-
-                // mat-input error carent color
-                ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
-                    caret-color: red!important;
-                }
-
-                // mat-label normal state style
-                ::ng-deep .mat-form-field-label {
-                    color: rgba(0,0,0,.6)!important;
-                    // color: $mainColor!important;
-                }
+                
             }
         }
     }

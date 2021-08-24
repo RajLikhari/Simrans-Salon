@@ -41,21 +41,23 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label for="service">Service</mat-label>
-                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" [(value)]="selectedValue" formControlName="serviceType"> 
+                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" formControlName="serviceType" [(value)]="selectedValue"> 
                         <mat-option>None</mat-option>
                         <mat-option *ngFor="let item of nailType" [value]="item.value">
                             {{item.viewValue}}
                           </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Service Pricing</mat-label>
-                    <mat-select [disabled]="thisDisabled" formControlName="servicePrice">
+                    <mat-select  formControlName="servicePrice">
                         <div *ngFor="let item of arrOfValues">
                             <mat-option [value]="item">{{ item }} </mat-option>
                         </div>
                     </mat-select>
+                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
                 </mat-form-field>
                 
                 <mat-form-field appearance="outline">
@@ -65,13 +67,15 @@
                             {{ time.viewValue }}
                         </mat-option>                        
                     </mat-select>
+                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
                 </mat-form-field>
-
 
                 <button class="nav-item" mat-stroked-button type="submit" >Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+
 
 

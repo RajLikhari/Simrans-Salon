@@ -57,48 +57,8 @@ export class BookingPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.dataIndex != undefined){
-      this.selectedValue = this.nailType[this.dataIndex].value
-    }
-    if(this.selectedValue == "arc"){
-      this.thisDisabled = false
-      this.arrOfValues.splice(0, this.arrOfValues.length)
-      this.arrOfValues.push("Short/Medium: $55")
-      this.arrOfValues.push("Long $60")
-      this.arrOfValues.push("XLong: $65")
-      this.arrOfValues.push("XXLong: $70")
-    } else if (this.selectedValue == "dip"){
-      this.thisDisabled = false
-      this.arrOfValues.splice(0, this.arrOfValues.length)
-      this.arrOfValues.push("Short/Medium: $45")
-      this.arrOfValues.push("Long $50")
-      this.arrOfValues.push("XLong: $60")
-      this.arrOfValues.push("XXLong: $65")
-    } else if (this.selectedValue== "gel"){
-      this.thisDisabled = false
-      this.arrOfValues.splice(0, this.arrOfValues.length)
-      this.arrOfValues.push("Short/Medium: $55")
-      this.arrOfValues.push("Long $60")
-      this.arrOfValues.push("XLong: $65")
-      this.arrOfValues.push("XXLong: $70")
-    } else if (this.selectedValue == "french"){
-      this.thisDisabled = false
-      this.arrOfValues.splice(0, this.arrOfValues.length)
-      this.arrOfValues.push("Short/Medium: $65")
-      this.arrOfValues.push("Long $70")
-      this.arrOfValues.push("XLong: $75")
-      this.arrOfValues.push("XXLong: $80")
-    } else if (this.selectedValue== "freestyle") {
-      this.thisDisabled = false
-      this.arrOfValues.splice(0, this.arrOfValues.length)
-      this.arrOfValues.push("Short/Medium: $75")
-      this.arrOfValues.push("Long $90")
-      this.arrOfValues.push("XLong: $105")
-      this.arrOfValues.push("XXLong: $115")
-    } else {
-      this.thisDisabled = true
-    }
-
+    this.selectedValue = this.nailType[0].value
+    console.log(this.selectedValue)
 
   }
 
