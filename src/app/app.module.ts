@@ -11,7 +11,6 @@ import { GalleryComponentComponent } from './gallery-component/gallery-component
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatRippleModule} from '@angular/material/core';
-import { CursiveTitleComponent } from './cursive-title/cursive-title.component';
 import { GalleryCardComponent } from './gallery-card/gallery-card.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -23,6 +22,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DataPassService } from './dataPassService';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -38,7 +40,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FooterComponent,
     BookingPageComponent,
     GalleryComponentComponent,
-    CursiveTitleComponent,
     GalleryCardComponent
   ],
   imports: [
@@ -56,9 +57,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatIconModule,
     MatNativeDateModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [DataPassService],
   bootstrap: [MenuComponent]
 })
 export class AppModule { }

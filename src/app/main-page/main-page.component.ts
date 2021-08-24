@@ -1,5 +1,7 @@
 import { getSupportedInputTypes } from '@angular/cdk/platform';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataPassService } from '../dataPassService';
 
 @Component({
   selector: 'app-main-page',
@@ -8,23 +10,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private dataPass: DataPassService) { }
 
  
 
   ngOnInit(): void {
 
-    var serviceItem = {
-      type: "",
-      price: "",
-      description: ""
-    }
 
+  }
 
-    
+  sendArc(){
+    this.dataPass.setData(1)
+    this.router.navigateByUrl("/booking")
+  }
 
+  sendDip(){
+    this.dataPass.setData(2)
+    this.router.navigateByUrl("/booking")
+  }
 
+  sendGel(){
+    this.dataPass.setData(3)
+    this.router.navigateByUrl("/booking")
+  }
 
+  sendFrench(){
+    this.dataPass.setData(4)
+    this.router.navigateByUrl("/booking")
+  }
+
+  sendFree(){
+    this.dataPass.setData(5)
+    this.router.navigateByUrl("/booking")
   }
 
  
