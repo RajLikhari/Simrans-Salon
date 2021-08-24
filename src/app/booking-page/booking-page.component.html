@@ -41,7 +41,7 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label for="service">Service</mat-label>
-                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" formControlName="serviceType" [(value)]="selectedValue"> 
+                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" [(value)]="selectedValue"> 
                         <mat-option>None</mat-option>
                         <mat-option *ngFor="let item of nailType" [value]="item.value">
                             {{item.viewValue}}
@@ -70,7 +70,7 @@
                     <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
                 </mat-form-field>
 
-                <button class="nav-item" mat-stroked-button type="submit" >Submit</button>
+               <button class="nav-item" mat-stroked-button type="submit" >Submit</button>
             </form>
         </div>
     </div>

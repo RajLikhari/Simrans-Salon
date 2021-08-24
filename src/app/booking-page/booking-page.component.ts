@@ -57,11 +57,14 @@ export class BookingPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.selectedValue = this.nailType[0].value
-    console.log(this.selectedValue)
+    if(this.dataIndex != undefined){
+      this.selectedValue = this.nailType[this.dataIndex].value
+      this.determinePricing(this.data)
+    }
+    
 
   }
-
+ 
 
   formGroup = this.fb.group({
     first: new FormControl(null, [Validators.required]),
@@ -79,36 +82,46 @@ export class BookingPageComponent implements OnInit {
  
 
   onSelectChange(e: any){
-    console.log(e)
-    if(e.value == "arc"){
+    this.formGroup.value.serviceType = e.value
+    this.determinePricing(e.value)
+   
+  }
+
+
+  processForm(){
+    console.log(this.formGroup)
+  }
+
+  determinePricing(data: any){
+    if(data == "arc"){
       this.thisDisabled = false
       this.arrOfValues.splice(0, this.arrOfValues.length)
       this.arrOfValues.push("Short/Medium: $55")
       this.arrOfValues.push("Long $60")
       this.arrOfValues.push("XLong: $65")
       this.arrOfValues.push("XXLong: $70")
-    } else if (e.value == "dip"){
+    } else if (data == "dip"){
       this.thisDisabled = false
       this.arrOfValues.splice(0, this.arrOfValues.length)
       this.arrOfValues.push("Short/Medium: $45")
       this.arrOfValues.push("Long $50")
       this.arrOfValues.push("XLong: $60")
       this.arrOfValues.push("XXLong: $65")
-    } else if (e.value == "gel"){
+    } else if (data == "gel"){
       this.thisDisabled = false
       this.arrOfValues.splice(0, this.arrOfValues.length)
       this.arrOfValues.push("Short/Medium: $55")
       this.arrOfValues.push("Long $60")
       this.arrOfValues.push("XLong: $65")
       this.arrOfValues.push("XXLong: $70")
-    } else if (e.value == "french"){
+    } else if (data == "french"){
       this.thisDisabled = false
       this.arrOfValues.splice(0, this.arrOfValues.length)
       this.arrOfValues.push("Short/Medium: $65")
       this.arrOfValues.push("Long $70")
       this.arrOfValues.push("XLong: $75")
       this.arrOfValues.push("XXLong: $80")
-    } else if (e.value == "freestyle") {
+    } else if (data == "freestyle") {
       this.thisDisabled = false
       this.arrOfValues.splice(0, this.arrOfValues.length)
       this.arrOfValues.push("Short/Medium: $75")
@@ -118,11 +131,6 @@ export class BookingPageComponent implements OnInit {
     } else {
       this.thisDisabled = true
     }
-  }
-
-
-  processForm(){
-    
   }
 
 
