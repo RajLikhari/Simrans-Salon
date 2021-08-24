@@ -3,7 +3,6 @@
         <div class="left-flex-header">
             <p class="book-header">Book an Appointment with Simran's Salon</p>
         </div>
-        <mat-divider></mat-divider>
         <div class="left-flex-body">
             <form [formGroup]="formGroup" class="form-group" (ngSubmit)="processForm()">
                 
@@ -42,14 +41,32 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label for="service">Service</mat-label>
-                    <mat-select (selectionChange)="onSelectChange($event.value)" formControlName="serviceType">
-                        <mat-option value="1">One Color Full Set Acrylic</mat-option>
-                        <mat-option value="2">One Color Full Set Dip</mat-option>
-                        <mat-option value="3">One Color Full Set Gel</mat-option>
-                        <mat-option value="4">Modern French / V-French Tip</mat-option>
-                        <mat-option value="5">Simran's Salon Freestyle</mat-option>
+                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" [(value)]="selectedValue" formControlName="serviceType"> 
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let item of nailType" [value]="item.value">
+                            {{item.viewValue}}
+                          </mat-option>
                     </mat-select>
                 </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Service Pricing</mat-label>
+                    <mat-select [disabled]="thisDisabled" formControlName="servicePrice">
+                        <div *ngFor="let item of arrOfValues">
+                            <mat-option [value]="item">{{ item }} </mat-option>
+                        </div>
+                    </mat-select>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label for="Time">Time</mat-label>
+                    <mat-select placeholder="Time" formControlName="serviceTime">
+                        <mat-option *ngFor="let time of timeSet" [value]="time.value">
+                            {{ time.viewValue }}
+                        </mat-option>                        
+                    </mat-select>
+                </mat-form-field>
+
 
                 <button class="nav-item" mat-stroked-button type="submit" >Submit</button>
             </form>

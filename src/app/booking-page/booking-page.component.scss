@@ -1,0 +1,102 @@
+.total-flex{
+    display: flex;
+    justify-content: center;
+    background-image: url("../../assets/background.jpg");
+
+    width: 100%;
+    height: 95vh;
+  
+
+    .left-flex{
+        display: flex;
+        
+        width: 400px;
+        height: 100%;
+
+        flex-direction: column;
+        align-items: center;
+
+        background-color: #f5eceb;
+        filter: drop-shadow(1px 1px 5px black);
+
+
+        .left-flex-header{
+            width: 90%;
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+
+            .book-header{
+                margin-top: 30px;
+                font-size: 30px;
+                font-family: 'Raleway', sans-serif;
+                line-height: 30px;
+                text-align: center;
+            }
+
+        }
+
+        .left-flex-body{
+            .form-group{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                mat-form-field{
+                    width: 300px;
+                    font-family: 'Raleway', sans-serif;
+                    padding: 4px;
+
+                }
+
+                mat-label{
+                    color: black;
+                    font-size: 18px;
+                }
+
+                button{
+                    font-size: 20px;
+                    font-family: 'Raleway', sans-serif;
+
+                }
+
+              
+                //input outline color
+                ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+                    color: black!important;
+                    // opacity: 1!important;
+                }
+
+                //mat-input focused color
+                ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+                    color: black!important;
+                }
+
+                // mat-input error outline color
+                ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+                    color: red!important;
+                    opacity: 0.8!important;
+                }
+
+                // mat-input carent color
+                ::ng-deep .mat-input-element {
+                    caret-color: black!important;
+                }
+
+                // mat-input error carent color
+                ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+                    caret-color: red!important;
+                }
+
+                // mat-label normal state style
+                ::ng-deep .mat-form-field-label {
+                    color: rgba(0,0,0,.6)!important;
+                    // color: $mainColor!important;
+                }
+            }
+        }
+    }
+}

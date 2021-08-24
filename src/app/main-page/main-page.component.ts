@@ -20,27 +20,27 @@ export class MainPageComponent implements OnInit {
   }
 
   sendArc(){
-    this.dataPass.setData(1)
+    this.dataPass.setData("arc")
     this.router.navigateByUrl("/booking")
   }
 
   sendDip(){
-    this.dataPass.setData(2)
+    this.dataPass.setData("dip")
     this.router.navigateByUrl("/booking")
   }
 
   sendGel(){
-    this.dataPass.setData(3)
+    this.dataPass.setData("dip")
     this.router.navigateByUrl("/booking")
   }
 
   sendFrench(){
-    this.dataPass.setData(4)
+    this.dataPass.setData("french")
     this.router.navigateByUrl("/booking")
   }
 
   sendFree(){
-    this.dataPass.setData(5)
+    this.dataPass.setData("freestyle")
     this.router.navigateByUrl("/booking")
   }
 
