@@ -42,9 +42,20 @@ export class BookingPageComponent implements OnInit {
   
   data: any
   dataIndex: any
-  selectedValue: any
   arrOfValues : string[] = [];
   thisDisabled = true;
+
+  sendFirst: any
+  sendLast: any
+  sendEmail: any
+  sendPhoneNum: any
+  sendServiceType: any
+  sendServicePrice: any;
+  sendServiceTime: any
+  sendAppDate: any
+  hasError = true
+
+
 
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private dataPassService: DataPassService) {
     this.data = this.dataPassService.getData();
@@ -56,13 +67,18 @@ export class BookingPageComponent implements OnInit {
 
   }
 
+  openSnackBar() {
+      this.snackBar.open("Please enter all fields", "Close", {
+        duration: 3000
+      })
+  }
+
+
   ngOnInit(): void {
     if(this.dataIndex != undefined){
-      this.selectedValue = this.nailType[this.dataIndex].value
+      this.formGroup.controls['serviceType'].setValue(this.data)
       this.determinePricing(this.data)
     }
-    
-
   }
  
 
@@ -82,14 +98,25 @@ export class BookingPageComponent implements OnInit {
  
 
   onSelectChange(e: any){
-    this.formGroup.value.serviceType = e.value
     this.determinePricing(e.value)
-   
   }
 
 
   processForm(){
-    console.log(this.formGroup)
+    this.sendFirst = this.formGroup.value.first
+    this.sendLast = this.formGroup.value.sendLast
+    this.sendEmail = this.formGroup.value.email
+    this.sendPhoneNum = this.formGroup.value.phoneNum
+    this.sendAppDate = this.formGroup.value.appDate
+    this.sendServiceType = this.formGroup.value.serviceType
+    this.sendServicePrice = this.formGroup.value.servicePrice
+    this.sendServiceTime = this.formGroup.value.serviceTime
+
+    //Validation 
+    if(this.sendFirst == null || this.sendLast == null || this.sendEmail == null || this.sendPhoneNum == null || this.sendAppDate == null || this.sendServiceType == null || this.sendServicePrice == null || this.sendServiceTime == null){
+        this.openSnackBar();
+    }
+
   }
 
   determinePricing(data: any){

@@ -39,35 +39,38 @@
                     <mat-error *ngIf="this.formGroup.controls.appDate.errors?.required">Value required</mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline">
+                <mat-form-field class="border-red" appearance="outline">
                     <mat-label for="service">Service</mat-label>
-                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" [(value)]="selectedValue"> 
+                    <mat-select placeholder="Service" name="nailType" (selectionChange)="onSelectChange($event)" formControlName="serviceType"> 
                         <mat-option>None</mat-option>
                         <mat-option *ngFor="let item of nailType" [value]="item.value">
                             {{item.viewValue}}
                           </mat-option>
                     </mat-select>
-                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
+                    <mat-error *ngIf="this.formGroup.controls.serviceType.errors?.required">Value required</mat-error>
                 </mat-form-field>
+
 
                 <mat-form-field appearance="outline">
                     <mat-label>Service Pricing</mat-label>
                     <mat-select  formControlName="servicePrice">
+                        <mat-option>None</mat-option>
                         <div *ngFor="let item of arrOfValues">
                             <mat-option [value]="item">{{ item }} </mat-option>
                         </div>
                     </mat-select>
-                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
+                    <mat-error *ngIf="this.formGroup.controls.servicePrice.errors?.required">Value required</mat-error>
                 </mat-form-field>
                 
                 <mat-form-field appearance="outline">
                     <mat-label for="Time">Time</mat-label>
                     <mat-select placeholder="Time" formControlName="serviceTime">
+                        <mat-option>None</mat-option>
                         <mat-option *ngFor="let time of timeSet" [value]="time.value">
                             {{ time.viewValue }}
                         </mat-option>                        
                     </mat-select>
-                    <mat-error *ngIf="this.formGroup.controls.email.errors?.required">Value required</mat-error>
+                    <mat-error *ngIf="this.formGroup.controls.serviceTime.errors?.required">Value required</mat-error>
                 </mat-form-field>
 
                <button class="nav-item" mat-stroked-button type="submit" >Submit</button>
