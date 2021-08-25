@@ -20,27 +20,27 @@ export class MainPageComponent implements OnInit {
   }
 
   sendArc(){
-    this.dataPass.setData("arc")
+    this.dataPass.setData("One Color Full Set Acrylic")
     this.router.navigateByUrl("/booking")
   }
 
   sendDip(){
-    this.dataPass.setData("dip")
+    this.dataPass.setData("One Color Full Set Dip")
     this.router.navigateByUrl("/booking")
   }
 
   sendGel(){
-    this.dataPass.setData("dip")
+    this.dataPass.setData("One Color Full Set Gel")
     this.router.navigateByUrl("/booking")
   }
 
   sendFrench(){
-    this.dataPass.setData("french")
+    this.dataPass.setData("Modern French / V-French Tip")
     this.router.navigateByUrl("/booking")
   }
 
   sendFree(){
-    this.dataPass.setData("freestyle")
+    this.dataPass.setData("Simran\'s Salon Freestyle")
     this.router.navigateByUrl("/booking")
   }
 

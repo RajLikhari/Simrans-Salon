@@ -25,6 +25,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DataPassService } from './dataPassService';
 import { MatSelectModule } from '@angular/material/select'; 
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+
 
 
 
@@ -62,7 +64,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     HttpClientModule
   ],
-  providers: [DataPassService],
+  providers: [DataPassService, DatePipe],
   bootstrap: [MenuComponent]
 })
 export class AppModule { }
