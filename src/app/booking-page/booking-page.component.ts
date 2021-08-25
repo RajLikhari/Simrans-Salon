@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, _SnackBarContainer } from '@angular/material/snack-bar';
@@ -45,19 +46,9 @@ export class BookingPageComponent implements OnInit {
   arrOfValues : string[] = [];
   thisDisabled = true;
 
-  sendFirst: any
-  sendLast: any
-  sendEmail: any
-  sendPhoneNum: any
-  sendServiceType: any
-  sendServicePrice: any;
-  sendServiceTime: any
-  sendAppDate: any
-  hasError = true
 
 
-
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private dataPassService: DataPassService) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private dataPassService: DataPassService, private http: HttpClient) {
     this.data = this.dataPassService.getData();
     for(let i = 0; i < this.nailType.length; i++){
       if(this.nailType[i].value == this.data){
@@ -67,11 +58,18 @@ export class BookingPageComponent implements OnInit {
 
   }
 
-  openSnackBar() {
+  
+  openFieldSnackBar() {
       this.snackBar.open("Please enter all fields", "Close", {
         duration: 3000
       })
   }
+
+  openPhoneSnackBar() {
+    this.snackBar.open("Please enter a valid phone number", "Close", {
+      duration: 3000
+    })
+}
 
 
   ngOnInit(): void {
@@ -103,19 +101,45 @@ export class BookingPageComponent implements OnInit {
 
 
   processForm(){
-    this.sendFirst = this.formGroup.value.first
-    this.sendLast = this.formGroup.value.sendLast
-    this.sendEmail = this.formGroup.value.email
-    this.sendPhoneNum = this.formGroup.value.phoneNum
-    this.sendAppDate = this.formGroup.value.appDate
-    this.sendServiceType = this.formGroup.value.serviceType
-    this.sendServicePrice = this.formGroup.value.servicePrice
-    this.sendServiceTime = this.formGroup.value.serviceTime
 
-    //Validation 
-    if(this.sendFirst == null || this.sendLast == null || this.sendEmail == null || this.sendPhoneNum == null || this.sendAppDate == null || this.sendServiceType == null || this.sendServicePrice == null || this.sendServiceTime == null){
-        this.openSnackBar();
+    //Early validation
+    if(this.formGroup.value.first == null || this.formGroup.value.last == null || this.formGroup.value.email == null ||this.formGroup.value.phoneNum == null || this.formGroup.value.appDate == null || this.formGroup.value.serviceType == null || this.formGroup.value.servicePrice == null || this.formGroup.value.serviceTime == null){
+      this.openFieldSnackBar()
+    } else if (isNaN(this.formGroup.value.phoneNum)){
+      this.openPhoneSnackBar()
+    } else {
+      const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+      const data = {"firstName": this.formGroup.value.first,
+                    "lastName": this.formGroup.value.last,
+                    "email": this.formGroup.value.email,
+                    "phoneNumber": this.formGroup.value.phoneNum,
+                    "appointmentDate": this.formGroup.value.appDate,
+                    "serviceType": this.formGroup.value.serviceType,
+                    "servicePrice": this.formGroup.value.servicePrice,
+                    "serviceTime": this.formGroup.value.serviceTime}
+
+      let promise = new Promise<void>((resolve, reject) => {
+        let apiUrl = "/api"
+        this.http.post(apiUrl, data)
+          .toPromise()
+          .then(
+            res => {
+              console.log(res)
+              resolve();
+            },
+            msg => {
+              reject(msg)
+            }
+          )
+      });
+
+
     }
+
+    
+
+ 
+    
 
   }
 

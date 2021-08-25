@@ -23,7 +23,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DataPassService } from './dataPassService';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select'; 
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -59,6 +60,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatNativeDateModule,
     MatSnackBarModule,
     MatSelectModule,
+    HttpClientModule
   ],
   providers: [DataPassService],
   bootstrap: [MenuComponent]

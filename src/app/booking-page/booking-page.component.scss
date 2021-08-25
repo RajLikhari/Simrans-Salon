@@ -4,7 +4,7 @@
     background-image: url("../../assets/background.jpg");
 
     width: 100%;
-    height: 1000px;
+    height: 95vh;
   
 
     .left-flex{
@@ -116,5 +116,12 @@
                 
             }
         }
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+    .total-flex{
+        height: 1000px;
     }
 }
