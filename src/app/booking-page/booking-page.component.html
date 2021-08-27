@@ -33,7 +33,7 @@
     
                 <mat-form-field appearance="outline">
                     <mat-label for="appDate">Appointment Date</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="appDate" placeholder="Ex: 8/18/21">
+                    <input matInput [matDatepicker]="picker" formControlName="appDate" placeholder="Ex: 8/18/21"  (dateChange)="onDateChange($event)">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-error *ngIf="this.formGroup.controls.appDate.errors?.required">Value required</mat-error>

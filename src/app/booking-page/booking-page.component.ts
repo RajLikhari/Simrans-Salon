@@ -70,7 +70,14 @@ export class BookingPageComponent implements OnInit {
     this.snackBar.open("Please enter a valid phone number", "Close", {
       duration: 3000
     })
-}
+  }
+
+  openCustomSnackBar(msg: any){
+    this.snackBar.open(msg, "Close", {
+      duration: 3000
+
+    })
+  }
 
 
   ngOnInit(): void {
@@ -100,9 +107,13 @@ export class BookingPageComponent implements OnInit {
     this.determinePricing(e.value)
   }
 
+  onDateChange(e: any){
+    const time = this.datePipe.transform(e.value, 'fullDate')
+
+  }
+
 
   processForm(){
-  
     const time = this.datePipe.transform(this.formGroup.value.appDate, 'fullDate')
     //Early validation
     if(this.formGroup.value.first == null || this.formGroup.value.last == null || this.formGroup.value.email == null ||this.formGroup.value.phoneNum == null || this.formGroup.value.appDate == null || this.formGroup.value.serviceType == null || this.formGroup.value.servicePrice == null || this.formGroup.value.serviceTime == null){
@@ -126,23 +137,17 @@ export class BookingPageComponent implements OnInit {
           .toPromise()
           .then(
             res => {
-              console.log(res)
+              this.openCustomSnackBar("Success, an email has been sent to you!")
               resolve();
             },
             msg => {
+              this.openCustomSnackBar("Unable to create your appointment at this time")
               reject(msg)
             }
           )
+          
       });
-
-
     }
-
-    
-
- 
-    
-
   }
 
 
