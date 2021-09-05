@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, _SnackBarContainer } from '@angular/material/snack-bar';
+import * as moment from 'moment';
 import { DataPassService } from '../dataPassService';
 
 
@@ -85,6 +86,8 @@ export class BookingPageComponent implements OnInit {
       this.formGroup.controls['serviceType'].setValue(this.data)
       this.determinePricing(this.data)
     }
+
+    
   }
  
 
@@ -108,7 +111,44 @@ export class BookingPageComponent implements OnInit {
   }
 
   onDateChange(e: any){
-    const time = this.datePipe.transform(e.value, 'fullDate')
+    const bookingTime = this.datePipe.transform(e.value, 'fullDate')
+    const currentDate = moment().format("dddd, MMMM D, YYYY");
+    console.log(bookingTime)
+    console.log(currentDate)
+
+    const shortDate = this.datePipe.transform(e.value, "shortDate")
+    const shortDate2 = moment().format("M/D/YY");
+    console.log(shortDate)
+    console.log(shortDate2)
+
+    const result = shortDate?.split('/')
+    const result2 = shortDate2.split('/')
+
+    console.log(result)
+    console.log(result2)
+
+    var hello = Number(result2[0])
+    var bye = Number(result2[1])
+    var bee = Number(result2[2])
+
+    var poop;
+    if(result != undefined){
+      var check = Number(result[0])
+      var check2 = Number(result[1])
+      var check3 = Number(result[2])
+      poop = new Date(check, check2, check3)
+    }
+    
+
+    var date = new Date(hello, bye, bee)
+
+    if(poop != undefined){
+      if(poop < date){
+        console.log("bad")
+      }
+    }
+         
+    
 
   }
 
