@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, _SnackBarContainer } from '@angular/material/snack-bar';
@@ -13,10 +13,7 @@ export interface Nail{
   viewValue: string;
 }
 
-export interface Time{
-  value: string;
-  viewValue: string
-}
+
 
 
 @Component({
@@ -37,16 +34,14 @@ export class BookingPageComponent implements OnInit {
     {value: 'Simran\'s Salon Freestyle', viewValue: 'Simran\'s Salon Freestyle'}
   ];
 
-  timeSet: Time[] = [
-    {value: '1', viewValue: '1 PM'},
-    {value: '2', viewValue: '2 PM'},
-  ]
+ 
 
   
   data: any
   dataIndex: any
   arrOfValues : string[] = [];
   thisDisabled = true;
+  timeSet: any
 
 
 
@@ -110,45 +105,69 @@ export class BookingPageComponent implements OnInit {
     this.determinePricing(e.value)
   }
 
+
+  //Need to look into disabling the button 
   onDateChange(e: any){
-    const bookingTime = this.datePipe.transform(e.value, 'fullDate')
-    const currentDate = moment().format("dddd, MMMM D, YYYY");
-    console.log(bookingTime)
-    console.log(currentDate)
-
-    const shortDate = this.datePipe.transform(e.value, "shortDate")
-    const shortDate2 = moment().format("M/D/YY");
-    console.log(shortDate)
-    console.log(shortDate2)
-
-    const result = shortDate?.split('/')
-    const result2 = shortDate2.split('/')
-
-    console.log(result)
-    console.log(result2)
-
-    var hello = Number(result2[0])
-    var bye = Number(result2[1])
-    var bee = Number(result2[2])
-
-    var poop;
-    if(result != undefined){
-      var check = Number(result[0])
-      var check2 = Number(result[1])
-      var check3 = Number(result[2])
-      poop = new Date(check, check2, check3)
-    }
+    const bookingTimeSend = this.datePipe.transform(e.value, 'fullDate')
     
+    const bookingTimeShort = this.datePipe.transform(e.value, "shortDate")
+    const currentDateShort = moment().format("M/D/YY");
+    
+    var bookingTimeDate; 
+    var currentTimeDate;
+    if(bookingTimeShort != undefined){
+      const bookingTimeArray = bookingTimeShort.split('/') 
+      const currentTimeArray = currentDateShort.split('/')
 
-    var date = new Date(hello, bye, bee)
+      var bookOne = Number(bookingTimeArray[0])
+      var bookTwo = Number(bookingTimeArray[1])
+      var bookThree = Number(bookingTimeArray[2])
 
-    if(poop != undefined){
-      if(poop < date){
-        console.log("bad")
+      var currentOne = Number(currentTimeArray[0])
+      var currentTwo = Number(currentTimeArray[1])
+      var currentThree = Number(currentTimeArray[2])
+
+      bookingTimeDate = new Date(bookOne, bookTwo, bookThree)
+      currentTimeDate = new Date(currentOne, currentTwo, currentThree)
+
+      if(bookingTimeDate < currentTimeDate){
+        this.openCustomSnackBar("Please enter a date today or in the future!")
+      } else {
+        let config: any;
+        if(bookingTimeSend != null){
+          config = { 
+            headers: new HttpHeaders().set('Content-Type', 'application/json'),
+            params: new HttpParams().set("date", bookingTimeSend)
+        
+          };
+         
+        }
+          let datePromise = new Promise((resolve, reject) => {
+          var apiUrl2 = "grabAppointmentTime?";
+          this.http.get(apiUrl2, config)
+            .toPromise()
+            .then(
+              res=>{
+                this.timeSet = res
+                resolve(res);
+              },
+              msg=>{
+                reject(msg)
+              }
+            )
+          })
+
+          
+
+          
+         
+
+
+
       }
     }
-         
-    
+
+
 
   }
 
@@ -171,14 +190,14 @@ export class BookingPageComponent implements OnInit {
                     "servicePrice": this.formGroup.value.servicePrice,
                     "serviceTime": this.formGroup.value.serviceTime}
 
-      let promise = new Promise<void>((resolve, reject) => {
+      let promise = new Promise((resolve, reject) => {
         let apiUrl = "/createAppointment"
         this.http.post(apiUrl, data)
           .toPromise()
           .then(
             res => {
               this.openCustomSnackBar("Success, an email has been sent to you!")
-              resolve();
+              resolve(res);
             },
             msg => {
               this.openCustomSnackBar("Unable to create your appointment at this time")

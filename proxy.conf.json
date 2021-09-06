@@ -2,5 +2,9 @@
     "/createAppointment": {
       "target": "http://localhost:3000",
       "secure": false
+    },
+    "/grabAppointmentTime": {
+      "target": "http://localhost:3000",
+      "secure": false
     }
 }

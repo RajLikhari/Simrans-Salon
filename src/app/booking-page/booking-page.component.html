@@ -66,8 +66,8 @@
                     <mat-label for="Time">Time</mat-label>
                     <mat-select placeholder="Time" formControlName="serviceTime">
                         <mat-option>None</mat-option>
-                        <mat-option *ngFor="let time of timeSet" [value]="time.value">
-                            {{ time.viewValue }}
+                        <mat-option *ngFor="let time of timeSet" [value]="time">
+                            {{ time }}
                         </mat-option>                        
                     </mat-select>
                     <mat-error *ngIf="this.formGroup.controls.serviceTime.errors?.required">Value required</mat-error>
